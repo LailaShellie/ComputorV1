@@ -166,8 +166,8 @@ def solve_equation(a, b, c):
         return solve_zero_degree(c)
 
 
-def PolyCoefficients(x, coeffs):
-    o = len(coeffs)
+def get_polynom_values(x, coeffs):
+    o = get_degree(a, b, c) + 1
     y = 0
     for i in range(o):
         y += coeffs[i]*x**i
@@ -208,7 +208,8 @@ if __name__ == '__main__':
         res = solve_equation(a, b, c)
 
         if graf == 1:
-            x = np.linspace(0, 10, 10)
+            x = np.linspace(-100, 100, 10)
             coeffs = [a, b, c]
-            plt.plot(x, PolyCoefficients(x, coeffs))
+            print (coeffs)
+            plt.plot(x, get_polynom_values(x, coeffs))
             plt.show()
